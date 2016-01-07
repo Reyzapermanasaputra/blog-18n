@@ -1,0 +1,55 @@
+<%= content_for(:page_header) {t('.title')} %>
+<p><%= form_tag articles_path do %>
+      <%= check_box_tag :status,
+    :data => { :size=>'large', 'on-color'=>'success', 'on-text'=>'YES', 'off-text'=>'NO' } %> 
+      <%= submit_tag "go" %>
+   <% end %>
+</p>
+<%= form_tag(articles_path, :method => "GET") do %>
+<%= text_field_tag :status %>
+<%= submit_tag "pencet"%>
+<% end %>
+<br />
+<h2>Import Article</h2>
+<%= form_tag import_articles_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag %>
+<% end %> 
+<br />
+<!--
+progress bar
+<div class="progress">
+  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+    60%
+  </div>
+</div>
+-->
+<h1>Upload</h1>
+<br />
+<table class="table stripped">
+  <thead>
+    <th>No</th>
+    <th>Title</th>
+    <th>Body</th>
+    <th></th>
+    <th>status</th>
+    <th>Action</th>
+   </thead>
+  <% @articles.each_with_index do |article, index| %>
+  <tbody>
+  <tr>
+  	<td><%= index + 1 %></td>
+  	<td><%= article.title %></td>
+  	<td><%= article.body %><td>
+  	<td><%= article.status %></td>
+    <td><%= link_to t('forms.buttons.edit'), edit_article_path(article)%> | <%= link_to 'Show', article_path(article) %> | <%= link_to 'destroy', article_path(article), method: "DELETE"%></td>
+  </tr>
+  </tbody>
+  <% end %>
+ </table>
+
+ <script type="text/javascript">
+  $(document).ready(function() {
+    $('input:checkbox').bootstrapSwitch();
+  });
+  </script>

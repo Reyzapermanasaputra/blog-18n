@@ -1,0 +1,25 @@
+id:
+  activerecord:
+   attributes:
+     article:
+       title: "Judul"
+       body: "Isi"
+  forms:
+    messages:
+      success: "Horeee Berhasil!"
+    buttons:
+     edit: "Ubah"
+     submit: "Submit"
+  menu:
+    new_article: "artikel baru"
+    languages:
+      lang: "Bahasa"
+      id: "Bahasa Indonesia"
+      en: "Bahasa Inggris"
+  articles:
+    index:
+      title: "Daftar Artikel"
+    edit:
+      title: "Edit Artikel"
+    new:
+      title: "Buat Artikel Baru"

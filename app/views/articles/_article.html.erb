@@ -1,0 +1,15 @@
+<h2><%= article.title %></h2>
+
+<p><%= article.body %></p>
+
+<p><%= article.status %></p>
+<p><%= link_to t('forms.buttons.edit'), edit_article_path(article), class: 'btn btn-default'%></p>
+<p><%= link_to 'Show', article_path(article) %></p>
+<p><%= link_to 'destroy', article_path(article), method: "DELETE"%></p>
+<hr />
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('input:checkbox').bootstrapSwitch();
+  });
+  </script>
